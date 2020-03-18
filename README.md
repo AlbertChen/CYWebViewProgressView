@@ -1,2 +1,2 @@
 # CYWebViewProgressView
-WKWebView progress view
+The progress is base on estimatedProgress of WKWebView.
