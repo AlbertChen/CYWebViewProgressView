@@ -1,0 +1,16 @@
+PODS:
+  - CYWebViewProgressView (0.0.1)
+
+DEPENDENCIES:
+  - CYWebViewProgressView (from `../`)
+
+EXTERNAL SOURCES:
+  CYWebViewProgressView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CYWebViewProgressView: cd5832e6239d5bb9c343212fbb07e9800d62a6f2
+
+PODFILE CHECKSUM: 13a9f77a809b997fb221dcbc7376129b1f2b6686
+
+COCOAPODS: 1.9.1
