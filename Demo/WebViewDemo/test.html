@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <script>
+      function onUserAgentClick() {
+        alert(navigator.userAgent)
+      }
       function onCookieClick() {
         window.webkit.messageHandlers.getCookies.postMessage(document.cookie)
       }
@@ -20,6 +23,7 @@
   </head>
   <body>
     <h1>Test</h1>
+    <input type="button" value="User Agent" onclick="onUserAgentClick()">
     <input type="button" value="Get Cookies" onclick="onCookieClick()">
     <input type="button" value="Share" onclick="onShareClick()">
   </body>

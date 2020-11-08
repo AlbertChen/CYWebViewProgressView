@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <WebKit/WebKit.h>
 
 @interface AppDelegate ()
 
@@ -17,9 +18,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setCustomUserAgent];
+    });
+    
     return YES;
 }
 
+- (void)setCustomUserAgent {
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero];
+    [webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        if (result != nil) {
+            webView.customUserAgent = [NSString stringWithFormat:@"%@ DEMO/1.0", result];
+            [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"UserAgent": webView.customUserAgent }];
+        }
+    }];
+}
 
 #pragma mark - UISceneSession lifecycle
 
